@@ -1,0 +1,74 @@
+﻿[
+    {
+        "file":  "assets/01-safety-factor-front-for-25-lb-side.png",
+        "alt":  "Safety factor â€” front for 25 lb / side"
+    },
+    {
+        "file":  "assets/02-safety-factor-front-for-25-45-lb-side.png",
+        "alt":  "Safety factor â€” front for 25 + 45 lb / side"
+    },
+    {
+        "file":  "assets/03-safety-factor-front-for-45-45-lb-side.png",
+        "alt":  "Safety factor â€” front for 45 + 45 lb / side"
+    },
+    {
+        "file":  "assets/04-safety-factor-top-for-25-lb-side.png",
+        "alt":  "Safety factor â€” top for 25 lb / side"
+    },
+    {
+        "file":  "assets/05-safety-factor-top-for-25-45-lb-side.png",
+        "alt":  "Safety factor â€” top for 25 + 45 lb / side"
+    },
+    {
+        "file":  "assets/06-safety-factor-top-for-45-45-lb-side.png",
+        "alt":  "Safety factor â€” top for 45 + 45 lb / side"
+    },
+    {
+        "file":  "assets/07-equivalent-stress-front-for-25-lb-side.png",
+        "alt":  "Equivalent stress â€” front for 25 lb / side"
+    },
+    {
+        "file":  "assets/08-equivalent-stress-front-for-25-45-lb-side.png",
+        "alt":  "Equivalent stress â€” front for 25 + 45 lb / side"
+    },
+    {
+        "file":  "assets/09-equivalent-stress-front-for-45-45-lb-side.png",
+        "alt":  "Equivalent stress â€” front for 45 + 45 lb / side"
+    },
+    {
+        "file":  "assets/10-equivalent-stress-top-for-25-lb-side.png",
+        "alt":  "Equivalent stress â€” top for 25 lb / side"
+    },
+    {
+        "file":  "assets/11-equivalent-stress-top-for-25-45-lb-side.png",
+        "alt":  "Equivalent stress â€” top for 25 + 45 lb / side"
+    },
+    {
+        "file":  "assets/12-equivalent-stress-top-for-45-45-lb-side.png",
+        "alt":  "Equivalent stress â€” top for 45 + 45 lb / side"
+    },
+    {
+        "file":  "assets/13-directional-deformation-for-25-lb-side.png",
+        "alt":  "Directional deformation for 25 lb / side"
+    },
+    {
+        "file":  "assets/14-directional-deformation-for-25-45-lb-side.png",
+        "alt":  "Directional deformation for 25 + 45 lb / side"
+    },
+    {
+        "file":  "assets/15-directional-deformation-for-45-45-lb-side.png",
+        "alt":  "Directional deformation for 45 + 45 lb / side"
+    },
+    {
+        "file":  "assets/16-total-deformation-for-25-lb-side.png",
+        "alt":  "Total deformation for 25 lb / side"
+    },
+    {
+        "file":  "assets/17-total-deformation-for-25-45-lb-side.png",
+        "alt":  "Total deformation for 25 + 45 lb / side"
+    },
+    {
+        "file":  "assets/18-total-deformation-for-45-45-lb-side.png",
+        "alt":  "Total deformation for 45 + 45 lb / side"
+    }
+]

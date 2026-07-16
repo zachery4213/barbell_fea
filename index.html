@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Olympic Barbell FEA Case Study</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" aria-label="Project navigation">
+    <a class="mark" href="#top" aria-label="Back to top">
+      <span>FEA</span>
+      <strong>01</strong>
+    </a>
+    <nav>
+      <a href="#setup">Setup</a>
+      <a href="#results">Results</a>
+      <a href="#evidence">Evidence</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">ANSYS Mechanical static structural study</p>
+        <h1>Olympic Barbell Under Various Plate Loading</h1>
+        <p class="lead">
+          I modelled a barbell using Olympic-standard dimensions and used finite element
+          analysis to compare how increasing plate loads changed stress, deformation, and
+          safety factor. The setup uses a centre shoulder-width support region with remote
+          loading points at both sleeve ends.
+        </p>
+        <div class="hero-actions">
+          <a href="#results" class="button primary">View load cases</a>
+          <a href="#evidence" class="button ghost">Inspect ANSYS plots</a>
+        </div>
+      </div>
+
+      <div class="barbell-stage" aria-label="Barbell finite element loading diagram">
+        <div class="model-heading">Olympic Barbell Model Reference</div>
+        <img class="hero-barbell" src="assets/hero-barbell-model.png" alt="Olympic barbell model used for the finite element analysis">
+      </div>
+    </section>
+
+    <section class="brief-strip" aria-label="Project summary">
+      <article>
+        <span>Model</span>
+        <strong>Single barbell geometry</strong>
+        <p>Olympic-standard reference dimensions, analysed as a structural member.</p>
+      </article>
+      <article>
+        <span>Boundary condition</span>
+        <strong>Shoulder-width centre support</strong>
+        <p>Remote displacement represented the bar contact region during a squat.</p>
+      </article>
+      <article>
+        <span>Load locations</span>
+        <strong>Two sleeve-side remote points</strong>
+        <p>Symmetric plate loading was applied where weights would be loaded.</p>
+      </article>
+      <article>
+        <span>Outputs</span>
+        <strong>Stress, deformation, safety</strong>
+        <p>Compared von Mises stress, vertical deflection, total deformation, and factor of safety.</p>
+      </article>
+    </section>
+
+    <section class="section setup" id="setup">
+      <div class="section-label">01 / Simulation Setup</div>
+      <div class="section-intro">
+        <p>
+          The analysis was organized around three plate-loading scenarios. Each case used
+          the same geometry and constraint strategy so the differences in response came from
+          the increased loading.
+        </p>
+      </div>
+
+      <div class="setup-grid">
+        <div class="lab-note">
+          <span class="note-number">A</span>
+          <h3>Geometry Intent</h3>
+          <p>
+            The barbell was treated as the core load-carrying body. Sleeve loading regions,
+            the central shoulder support, and the bar span were separated conceptually so the
+            FEA results could be read like a bending study.
+          </p>
+        </div>
+        <div class="lab-note">
+          <span class="note-number">B</span>
+          <h3>Squat Boundary Condition</h3>
+          <p>
+            A remote displacement was placed across the centre of the bar at approximately
+            shoulder width. This simplified the lifter contact while keeping the support in
+            the physically meaningful region.
+          </p>
+        </div>
+        <div class="lab-note">
+          <span class="note-number">C</span>
+          <h3>Plate Loading</h3>
+          <p>
+            Remote regions on both sides represented the plate stacks. The cases increased
+            from one 25 lb plate per side to two 45 lb plates per side.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section result-section" id="results">
+      <div class="section-label">02 / Load Case Comparison</div>
+      <div class="result-shell">
+        <div class="case-selector" aria-label="Select a load case">
+          <button class="case-tab active" type="button" data-case="case-25">
+            <span>Case 01</span>
+            25 lb / side
+          </button>
+          <button class="case-tab" type="button" data-case="case-70">
+            <span>Case 02</span>
+            25 + 45 lb / side
+          </button>
+          <button class="case-tab" type="button" data-case="case-90">
+            <span>Case 03</span>
+            45 + 45 lb / side
+          </button>
+        </div>
+
+        <div class="case-display">
+          <div class="case-summary">
+            <p class="eyebrow">Selected condition</p>
+            <h2 id="caseTitle">25 lb / side</h2>
+            <p id="caseDescription">One 25 lb plate on each sleeve, producing the baseline response.</p>
+          </div>
+
+          <div class="metric-board" aria-live="polite">
+            <article>
+              <span>Total plate mass</span>
+              <strong id="massValue">50 lb</strong>
+            </article>
+            <article>
+              <span>Force per side</span>
+              <strong id="forceValue">111.2 N</strong>
+            </article>
+            <article>
+              <span>Max stress</span>
+              <strong id="stressValue">59.47 MPa</strong>
+            </article>
+            <article>
+              <span>Max deformation</span>
+              <strong id="deformValue">7.71 mm</strong>
+            </article>
+            <article class="safety">
+              <span>Minimum safety factor</span>
+              <strong id="safetyValue">4.20</strong>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="comparison-table" role="region" aria-label="Numerical result comparison" tabindex="0">
+        <table>
+          <thead>
+            <tr>
+              <th>Load case</th>
+              <th>Total plates</th>
+              <th>Force per side</th>
+              <th>Max stress</th>
+              <th>Total deformation</th>
+              <th>Vertical deformation</th>
+              <th>Min. safety factor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>25 lb / side</td>
+              <td>50 lb</td>
+              <td>111.2 N</td>
+              <td>59.468 MPa</td>
+              <td>7.709 mm</td>
+              <td>7.706 mm down</td>
+              <td>4.204</td>
+            </tr>
+            <tr>
+              <td>25 + 45 lb / side</td>
+              <td>140 lb</td>
+              <td>311.4 N</td>
+              <td>116.350 MPa</td>
+              <td>14.93 mm</td>
+              <td>14.93 mm down</td>
+              <td>2.149</td>
+            </tr>
+            <tr>
+              <td>45 + 45 lb / side</td>
+              <td>180 lb</td>
+              <td>400.3 N</td>
+              <td>141.660 MPa</td>
+              <td>18.14 mm</td>
+              <td>18.14 mm down</td>
+              <td>1.765</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section evidence" id="evidence">
+      <div class="section-label">03 / ANSYS Evidence Wall</div>
+
+      <div class="evidence-controls" aria-label="Filter result images">
+        <button type="button" class="filter active" data-filter="all">All</button>
+        <button type="button" class="filter" data-filter="safety">Safety factor</button>
+        <button type="button" class="filter" data-filter="stress">Equivalent stress</button>
+        <button type="button" class="filter" data-filter="deformation">Deformation</button>
+      </div>
+
+      <div class="image-wall">
+        <div class="image-heading" aria-hidden="true">
+          <span>Output</span>
+          <span>25 lb / side</span>
+          <span>25 + 45 lb / side</span>
+          <span>45 + 45 lb / side</span>
+        </div>
+
+        <article class="image-row" data-group="safety">
+          <div class="row-title">
+            <span>Safety factor</span>
+            <strong>Front view</strong>
+          </div>
+          <button type="button" class="plot" data-title="Safety factor front - 25 lb / side"><img src="assets/01-safety-factor-front-for-25-lb-side.png" alt="Safety factor front for 25 lb per side"></button>
+          <button type="button" class="plot" data-title="Safety factor front - 25 + 45 lb / side"><img src="assets/02-safety-factor-front-for-25-45-lb-side.png" alt="Safety factor front for 25 plus 45 lb per side"></button>
+          <button type="button" class="plot" data-title="Safety factor front - 45 + 45 lb / side"><img src="assets/03-safety-factor-front-for-45-45-lb-side.png" alt="Safety factor front for 45 plus 45 lb per side"></button>
+        </article>
+
+        <article class="image-row" data-group="safety">
+          <div class="row-title">
+            <span>Safety factor</span>
+            <strong>Top view</strong>
+          </div>
+          <button type="button" class="plot" data-title="Safety factor top - 25 lb / side"><img src="assets/04-safety-factor-top-for-25-lb-side.png" alt="Safety factor top for 25 lb per side"></button>
+          <button type="button" class="plot" data-title="Safety factor top - 25 + 45 lb / side"><img src="assets/05-safety-factor-top-for-25-45-lb-side.png" alt="Safety factor top for 25 plus 45 lb per side"></button>
+          <button type="button" class="plot" data-title="Safety factor top - 45 + 45 lb / side"><img src="assets/06-safety-factor-top-for-45-45-lb-side.png" alt="Safety factor top for 45 plus 45 lb per side"></button>
+        </article>
+
+        <article class="image-row" data-group="stress">
+          <div class="row-title">
+            <span>von Mises</span>
+            <strong>Equivalent stress front</strong>
+          </div>
+          <button type="button" class="plot" data-title="Equivalent stress front - 25 lb / side"><img src="assets/07-equivalent-stress-front-for-25-lb-side.png" alt="Equivalent stress front for 25 lb per side"></button>
+          <button type="button" class="plot" data-title="Equivalent stress front - 25 + 45 lb / side"><img src="assets/08-equivalent-stress-front-for-25-45-lb-side.png" alt="Equivalent stress front for 25 plus 45 lb per side"></button>
+          <button type="button" class="plot" data-title="Equivalent stress front - 45 + 45 lb / side"><img src="assets/09-equivalent-stress-front-for-45-45-lb-side.png" alt="Equivalent stress front for 45 plus 45 lb per side"></button>
+        </article>
+
+        <article class="image-row" data-group="stress">
+          <div class="row-title">
+            <span>von Mises</span>
+            <strong>Equivalent stress top</strong>
+          </div>
+          <button type="button" class="plot" data-title="Equivalent stress top - 25 lb / side"><img src="assets/10-equivalent-stress-top-for-25-lb-side.png" alt="Equivalent stress top for 25 lb per side"></button>
+          <button type="button" class="plot" data-title="Equivalent stress top - 25 + 45 lb / side"><img src="assets/11-equivalent-stress-top-for-25-45-lb-side.png" alt="Equivalent stress top for 25 plus 45 lb per side"></button>
+          <button type="button" class="plot" data-title="Equivalent stress top - 45 + 45 lb / side"><img src="assets/12-equivalent-stress-top-for-45-45-lb-side.png" alt="Equivalent stress top for 45 plus 45 lb per side"></button>
+        </article>
+
+        <article class="image-row" data-group="deformation">
+          <div class="row-title">
+            <span>Directional</span>
+            <strong>Vertical deformation</strong>
+          </div>
+          <button type="button" class="plot" data-title="Directional deformation - 25 lb / side"><img src="assets/13-directional-deformation-for-25-lb-side.png" alt="Directional deformation for 25 lb per side"></button>
+          <button type="button" class="plot" data-title="Directional deformation - 25 + 45 lb / side"><img src="assets/14-directional-deformation-for-25-45-lb-side.png" alt="Directional deformation for 25 plus 45 lb per side"></button>
+          <button type="button" class="plot" data-title="Directional deformation - 45 + 45 lb / side"><img src="assets/15-directional-deformation-for-45-45-lb-side.png" alt="Directional deformation for 45 plus 45 lb per side"></button>
+        </article>
+
+        <article class="image-row" data-group="deformation">
+          <div class="row-title">
+            <span>Total</span>
+            <strong>Total deformation</strong>
+          </div>
+          <button type="button" class="plot" data-title="Total deformation - 25 lb / side"><img src="assets/16-total-deformation-for-25-lb-side.png" alt="Total deformation for 25 lb per side"></button>
+          <button type="button" class="plot" data-title="Total deformation - 25 + 45 lb / side"><img src="assets/17-total-deformation-for-25-45-lb-side.png" alt="Total deformation for 25 plus 45 lb per side"></button>
+          <button type="button" class="plot" data-title="Total deformation - 45 + 45 lb / side"><img src="assets/18-total-deformation-for-45-45-lb-side.png" alt="Total deformation for 45 plus 45 lb per side"></button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" class="close-lightbox" aria-label="Close image">Close</button>
+    <figure>
+      <img id="lightboxImage" alt="">
+      <figcaption id="lightboxTitle"></figcaption>
+    </figure>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
